@@ -3,16 +3,17 @@ package com.hardik.iris.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.databind.annotation.JacksonStdImpl;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.extern.jackson.Jacksonized;
 
 @Getter
 @Builder
-@Jacksonized
+@JacksonStdImpl
 @NoArgsConstructor
 @AllArgsConstructor
 public class QrCodeGenerationRequestDto {
