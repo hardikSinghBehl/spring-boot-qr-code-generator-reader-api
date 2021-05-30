@@ -3,6 +3,7 @@ package com.hardik.iris.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class QrCodeController {
 	@ResponseStatus(value = HttpStatus.OK)
 	@Operation(summary = "Returns a .png QR code with provided information decoded inside")
 	public void qrCodeGenerationHandler(
-			@RequestBody(required = true) final QrCodeGenerationRequestDto qrCodeGenerationRequestDto,
+			@Valid @RequestBody(required = true) final QrCodeGenerationRequestDto qrCodeGenerationRequestDto,
 			final HttpServletResponse httpServletResponse) throws IOException, WriterException {
 		qrCodeService.generate(qrCodeGenerationRequestDto, httpServletResponse);
 	}
